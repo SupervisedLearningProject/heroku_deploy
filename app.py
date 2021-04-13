@@ -36,8 +36,13 @@ def predict():
 def test_temp_data():
     json_ = request
     print(json_)
-    query = pd.get_dummies(pd.DataFrame(json_))
+    query = pd.get_dummies(pd.DataFrame(eval(json_)))
     print(query)
+    
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    res = {}
+    res['query'] = query[0]
+    return jsonify(res)
 
 # A welcome message to test our server
 @app.route('/')
