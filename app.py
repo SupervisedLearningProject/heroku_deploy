@@ -3,8 +3,10 @@ import pandas as pd
 import joblib
 import sys
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/predict/', methods=['GET', 'POST'])
 def predict():
@@ -42,8 +44,7 @@ def test_temp_data():
     res = {}
     res['query'] = query[0]
     response = jsonify(res)
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    
+
     return response
 
 # A welcome message to test our server
