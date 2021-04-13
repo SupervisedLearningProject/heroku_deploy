@@ -38,7 +38,7 @@ def predict():
 def test_temp_data():
     json_ = request.get_json()
     print(json_)
-    query = pd.get_dummies(pd.DataFrame(json_))
+    query = pd.json_normalize(json_)
     print(query)
     
     res = {}
