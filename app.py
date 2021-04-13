@@ -39,10 +39,12 @@ def test_temp_data():
     query = pd.get_dummies(pd.DataFrame(eval(json_)))
     print(query)
     
-    response.headers.add("Access-Control-Allow-Origin", "*")
     res = {}
     res['query'] = query[0]
-    return jsonify(res)
+    response = jsonify(res)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    
+    return response
 
 # A welcome message to test our server
 @app.route('/')
@@ -58,4 +60,4 @@ if __name__ == '__main__':
         print('Test Data is not loaded.')
 
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, port=5000, debug=True)
