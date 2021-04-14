@@ -42,7 +42,7 @@ def test_temp_data():
     print(query)
     
     res = {}
-    res['query'] = query['id']
+    print(query['id'])
     response = jsonify(res)
 
     return response
