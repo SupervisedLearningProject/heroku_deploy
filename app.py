@@ -253,6 +253,7 @@ def test_temp_data():
     test_data = joblib.load('test_data.pkl')    
     if test_data is not None:
         query = test_data
+        lr = joblib.load('group1_lr_2021.pkl')
         if lr:
             try:
                 prediction = list(lr.predict(query))
@@ -263,97 +264,97 @@ def test_temp_data():
         else:
             return jsonify({"error": "Error in load lr model."})
 
-        if svm:
-            try:
-                prediction = list(svm.predict(query))
-                print({'prediction': str(prediction)})
-                res['svm_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load svm model."})
+#         if svm:
+#             try:
+#                 prediction = list(svm.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['svm_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load svm model."})
 
-        if knn:
-            try:
-                prediction = list(knn.predict(query))
-                print({'prediction': str(prediction)})
-                res['knn_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load knn model."})
+#         if knn:
+#             try:
+#                 prediction = list(knn.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['knn_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load knn model."})
 
-        if decision_tree:
-            try:
-                prediction = list(decision_tree.predict(query))
-                print({'prediction': str(prediction)})
-                res['decision_tree_prediction'] = decision_tree
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load decision_tree model."})
+#         if decision_tree:
+#             try:
+#                 prediction = list(decision_tree.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['decision_tree_prediction'] = decision_tree
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load decision_tree model."})
 
-        if random_forest:
-            try:
-                prediction = list(random_forest.predict(query))
-                print({'prediction': str(prediction)})
-                res['random_forest_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load random_forest model."})
+#         if random_forest:
+#             try:
+#                 prediction = list(random_forest.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['random_forest_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load random_forest model."})
 
-        if rendomized_search_lr:
-            try:
-                prediction = list(rendomized_search_lr.predict(query))
-                print({'prediction': str(prediction)})
-                res['rendomized_search_lr_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load rendomized_search_lr model."})
+#         if rendomized_search_lr:
+#             try:
+#                 prediction = list(rendomized_search_lr.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['rendomized_search_lr_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load rendomized_search_lr model."})
 
-        if rendomized_search_svm:
-            try:
-                prediction = list(rendomized_search_svm.predict(query))
-                print({'prediction': str(prediction)})
-                res['rendomized_search_svm_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load rendomized_search_svm model."})
+#         if rendomized_search_svm:
+#             try:
+#                 prediction = list(rendomized_search_svm.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['rendomized_search_svm_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load rendomized_search_svm model."})
 
-        if rendomized_search_decision_tree:
-            try:
-                prediction = list(
-                    rendomized_search_decision_tree.predict(query))
-                print({'prediction': str(prediction)})
-                res['rendomized_search_decision_tree_prediction'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load rendomized_search_decision_tree model."})
+#         if rendomized_search_decision_tree:
+#             try:
+#                 prediction = list(
+#                     rendomized_search_decision_tree.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['rendomized_search_decision_tree_prediction'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load rendomized_search_decision_tree model."})
 
-        if rendomized_search_knn:
-            try:
-                prediction = list(rendomized_search_knn.predict(query))
-                print({'prediction': str(prediction)})
-                res['rendomized_search_knn'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load rendomized_search_knn model."})
+#         if rendomized_search_knn:
+#             try:
+#                 prediction = list(rendomized_search_knn.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['rendomized_search_knn'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load rendomized_search_knn model."})
 
-        if rendomized_search_random_forest:
-            try:
-                prediction = list(
-                    rendomized_search_random_forest.predict(query))
-                print({'prediction': str(prediction)})
-                res['rendomized_search_random_forest'] = prediction
-            except:
-                return jsonify({'trace': traceback.format_exc()})
-        else:
-            return jsonify({"error": "Error in load rendomized_search_random_forest model."})
+#         if rendomized_search_random_forest:
+#             try:
+#                 prediction = list(
+#                     rendomized_search_random_forest.predict(query))
+#                 print({'prediction': str(prediction)})
+#                 res['rendomized_search_random_forest'] = prediction
+#             except:
+#                 return jsonify({'trace': traceback.format_exc()})
+#         else:
+#             return jsonify({"error": "Error in load rendomized_search_random_forest model."})
     else:
         return jsonify({"error": "Error in load test data model."})
     # Return the response in json format
