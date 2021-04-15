@@ -250,6 +250,8 @@ def prime_model():
 @app.route("/test", methods=['GET'])
 def test_temp_data():
     res = {}
+    if not test_data:
+        return jsonify({"error": "Error in load test data."})
     query = test_data
     if lr:
         try:
