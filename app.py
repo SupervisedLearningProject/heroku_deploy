@@ -251,7 +251,7 @@ def prime_model():
 def test_temp_data():
     res = {}
     test_data = joblib.load('test_data.pkl')    
-    if test_data:
+    if test_data is not None:
         query = test_data
         if lr:
             try:
