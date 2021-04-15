@@ -238,7 +238,7 @@ def prime_model():
         bike_color_items = [item in tmp_list_bike_colour for item in list_of_bike_color]
         if sum(bike_color_items)!=len(tmp_list_bike_colour):
             return jsonify({"error": "Please enter the bike colour with in the given list"})
-
+        print(query.columns)
         res = {}
         lr = joblib.load('group1_lr_2021.pkl')
         if lr:
