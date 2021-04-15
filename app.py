@@ -233,6 +233,15 @@ def prime_model():
 
         res = {}
 
+        if lr:
+        try:
+            prediction = list(lr.predict(query))
+            print({'prediction': str(prediction)})
+            res['lr_prediction'] = prediction
+        except:
+            return jsonify({'trace': traceback.format_exc()})
+        else:
+            return jsonify({"error": "Error in load lr model."})
         
     except:
         return jsonify({'trace': traceback.format_exc()})
