@@ -52,6 +52,10 @@ def predict():
         tmp_list_bike_make = query['Bike_Make'].unique()
         tmp_list_bike_colour = query['Bike_Colour'].unique()
         tmp_list_bike_type = query['Bike_Type'].unique()
+        
+        list_of_bike_color = joblib.load('list_of_bike_color.pkl')
+        list_of_bike_make = joblib.load('list_of_bike_make.pkl')
+        list_of_bike_type = joblib.load('list_of_bike_type.pkl')
 
         bike_make_items = [item in tmp_list_bike_make for item in list_of_bike_make]
         if sum(bike_make_items)!=len(tmp_list_bike_make):
@@ -218,6 +222,10 @@ def prime_model():
         tmp_list_bike_make = query['Bike_Make'].unique()
         tmp_list_bike_colour = query['Bike_Colour'].unique()
         tmp_list_bike_type = query['Bike_Type'].unique()
+        
+        list_of_bike_color = joblib.load('list_of_bike_color.pkl')
+        list_of_bike_make = joblib.load('list_of_bike_make.pkl')
+        list_of_bike_type = joblib.load('list_of_bike_type.pkl')
 
         bike_make_items = [item in tmp_list_bike_make for item in list_of_bike_make]
         if sum(bike_make_items)!=len(tmp_list_bike_make):
