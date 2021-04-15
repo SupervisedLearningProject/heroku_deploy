@@ -258,7 +258,7 @@ def test_temp_data():
             try:
                 prediction = list(lr.predict(query))
                 print({'prediction': str(prediction)})
-                res['lr_prediction'] = prediction
+                res['lr_prediction'] = str(prediction)
             except:
                 return jsonify({'trace': traceback.format_exc()})
         else:
