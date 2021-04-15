@@ -232,7 +232,7 @@ def prime_model():
             return jsonify({"error": "Please enter the bike colour with in the given list"})
 
         res = {}
-
+        lr = joblib.load('group1_lr_2021.pkl')
         if lr:
             try:
                 prediction = list(lr.predict(query))
