@@ -250,7 +250,7 @@ def prime_model():
                 return jsonify({'trace': traceback.format_exc()})
         else:
             return jsonify({"error": "Error in load lr model."})
-        
+        return jsonify(res)
     except:
         return jsonify({'trace': traceback.format_exc()})
 
